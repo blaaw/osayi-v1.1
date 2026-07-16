@@ -27,7 +27,7 @@
       <main class="main">
         <header class="topbar">
           <div><p class="eyebrow" id="databaseMeta">DATABASE</p><h1 id="databaseTitle">Welcome to Osayi</h1></div>
-          <div class="top-actions"><button class="button" id="renameDbBtn">rename</button><button class="button button-danger" id="deleteDbBtn">delete</button></div>
+          <div class="top-actions"><button class="button" id="toggleListBtn" aria-controls="listPanel" aria-expanded="true">hide entries</button><button class="button" id="renameDbBtn">rename</button><button class="button button-danger" id="deleteDbBtn">delete</button></div>
         </header>
 
         <section class="dashboard" id="dashboard"></section>
@@ -37,8 +37,12 @@
           </div>
           <div class="filters"><input id="searchInput" type="search" placeholder="search title, text, tags…" aria-label="Search" /><select id="tagFilter" aria-label="Filter by tag"><option value="">all tags</option></select><select id="sortSelect" aria-label="Sort items"><option value="updated">recently updated</option><option value="created">recently created</option><option value="title">title A–Z</option><option value="due">due date</option></select></div>
         </section>
-        <section class="content-area">
-          <div class="list-panel"><div class="list-header"><span id="resultCount">0 items</span><button class="button button-primary" id="newItemBtn">+ new entry</button></div><div class="entry-list" id="entryList"></div></div>
+        <section class="content-area" id="workspaceContent">
+          <div class="list-panel" id="listPanel">
+            <div class="list-header"><span id="resultCount">0 items</span><div><button class="button button-primary" id="newItemBtn">+ new entry</button></div></div>
+            <div class="entry-list" id="entryList"></div>
+          </div>
+          <article class="editor-panel" id="entryEditorPanel" aria-live="polite"></article>
         </section>
       </main>
     </div>
