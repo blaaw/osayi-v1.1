@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101411" />
+    <title>Osayi — local databases & notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Osayi home"><span class="brand-mark">O</span><span>osayi</span></a>
+        <p class="eyebrow">local databases & notes</p>
+        <button class="new-db button button-primary" id="newDatabaseBtn">+ new database</button>
+        <nav aria-label="Databases">
+          <div class="section-label"><span>DATABASES</span><span id="databaseCount">0</span></div>
+          <div class="database-list" id="databaseList"></div>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="text-button" id="exportBtn">↓ export workspace</button>
+          <label class="text-button import-label">↑ import JSON<input type="file" id="importInput" accept="application/json,.json" hidden /></label>
+          <p class="storage-note" id="storageNote">saved locally in this browser</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div><p class="eyebrow" id="databaseMeta">DATABASE</p><h1 id="databaseTitle">Welcome to Osayi</h1></div>
+          <div class="top-actions"><button class="button" id="renameDbBtn">rename</button><button class="button button-danger" id="deleteDbBtn">delete</button></div>
+        </header>
+
+        <section class="dashboard" id="dashboard"></section>
+        <section class="toolbar">
+          <div class="quick-views" role="group" aria-label="Quick views">
+            <button class="chip active" data-view="all">all</button><button class="chip" data-view="notes">notes</button><button class="chip" data-view="tasks">tasks</button><button class="chip" data-view="open">open</button><button class="chip" data-view="done">done</button>
+          </div>
+          <div class="filters"><input id="searchInput" type="search" placeholder="search title, text, tags…" aria-label="Search" /><select id="tagFilter" aria-label="Filter by tag"><option value="">all tags</option></select><select id="sortSelect" aria-label="Sort items"><option value="updated">recently updated</option><option value="created">recently created</option><option value="title">title A–Z</option><option value="due">due date</option></select></div>
+        </section>
+        <section class="content-area">
+          <div class="list-panel"><div class="list-header"><span id="resultCount">0 items</span><button class="button button-primary" id="newItemBtn">+ new entry</button></div><div class="entry-list" id="entryList"></div></div>
+          <article class="editor-panel" id="editorPanel"><div class="empty-state"><span class="empty-icon">⌘</span><h2>Your local workspace</h2><p>Create a database, then write notes and manage tasks in plain Markdown.</p><button class="button button-primary" id="emptyCreateBtn">create first database</button></div></article>
+        </section>
+      </main>
+    </div>
+    <dialog id="databaseDialog"><form method="dialog" id="databaseForm"><h2 id="databaseDialogTitle">New database</h2><label>Database name<input id="databaseNameInput" required maxlength="60" placeholder="e.g. Semester 1" /></label><div class="dialog-actions"><button class="button" value="cancel">cancel</button><button class="button button-primary" id="databaseSubmit" value="default">create database</button></div></form></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>

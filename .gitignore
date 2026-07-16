@@ -1,0 +1,21 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local tooling and temporary files
+node_modules/
+dist/
+coverage/
+*.log
+*.tmp
+*.swp
+
+# Environment-specific configuration
+.env
+.env.*
+!.env.example
+
+# Local agent instructions
+AGENTS.md
