@@ -18,4 +18,4 @@ coverage/
 !.env.example
 
 # Local agent instructions
-AGENTS.md
+docs/
